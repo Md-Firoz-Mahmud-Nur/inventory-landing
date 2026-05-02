@@ -1,13 +1,10 @@
-import Link from 'next/link';
-import { Navbar } from '@/components/navbar';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
-      
       {/* Hero Section */}
       <section className="px-4 py-16 md:py-24 max-w-7xl mx-auto">
         <div className="text-center space-y-8">
@@ -15,7 +12,8 @@ export default function Home() {
             Welcome to Our Shop
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
-            Discover amazing products from trusted sellers. Shop with confidence and enjoy a seamless experience.
+            Discover amazing products from trusted sellers. Shop with confidence
+            and enjoy a seamless experience.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <Button size="lg" asChild>
@@ -34,7 +32,7 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-balance">
             Why Choose Us?
           </h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card>
               <CardHeader>
@@ -45,7 +43,8 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Browse through thousands of products from various categories, all carefully curated for quality.
+                  Browse through thousands of products from various categories,
+                  all carefully curated for quality.
                 </p>
               </CardContent>
             </Card>
@@ -59,7 +58,8 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Your data is protected with industry-leading security measures and encrypted transactions.
+                  Your data is protected with industry-leading security measures
+                  and encrypted transactions.
                 </p>
               </CardContent>
             </Card>
@@ -73,7 +73,8 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Complete your purchase in minutes with our streamlined and user-friendly checkout process.
+                  Complete your purchase in minutes with our streamlined and
+                  user-friendly checkout process.
                 </p>
               </CardContent>
             </Card>
@@ -97,11 +98,6 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="px-4 py-8 border-t border-border bg-muted/50">
-        <div className="max-w-7xl mx-auto text-center text-sm text-muted-foreground">
-          <p>&copy; 2024 Shop. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 }

@@ -1,3 +1,5 @@
+import { Footer } from "@/components/footer";
+import { Navbar } from "@/components/navbar";
 import { AuthProvider } from "@/lib/auth-context";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -38,8 +40,10 @@ export default function RootLayout({
     <html lang="en" className="bg-background">
       <body className="font-sans antialiased">
         <AuthProvider>
+          <Navbar />
           {children}
           {process.env.NODE_ENV === "production"}
+          <Footer />
         </AuthProvider>
       </body>
     </html>

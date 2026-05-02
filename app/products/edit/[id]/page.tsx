@@ -13,6 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useAuth } from "@/lib/auth-context";
+import Image from "next/image";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -236,7 +237,7 @@ export default function EditProductPage() {
                     <p className="text-sm text-muted-foreground mb-2">
                       Preview:
                     </p>
-                    <img
+                    <Image
                       src={formData.image}
                       alt="Product preview"
                       className="w-full max-w-sm h-40 object-cover rounded-lg"

@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -162,7 +163,7 @@ export default function AddProductPage() {
                     <p className="text-sm text-muted-foreground mb-2">
                       Preview:
                     </p>
-                    <img
+                    <Image
                       src={formData.image}
                       alt="Product preview"
                       className="w-full max-w-sm h-40 object-cover rounded-lg"
