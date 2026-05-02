@@ -1,12 +1,18 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { Navbar } from '@/components/navbar';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { useAuth } from '@/lib/auth-context';
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { useAuth } from "@/lib/auth-context";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 interface Product {
   id: string;
@@ -23,19 +29,19 @@ export default function ProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('/api/products');
+        const response = await fetch("/api/products");
         if (response.ok) {
           const data = await response.json();
           setProducts(data.products);
           setFilteredProducts(data.products);
         }
       } catch (error) {
-        console.error('Failed to fetch products:', error);
+        console.error("Failed to fetch products:", error);
       } finally {
         setIsLoading(false);
       }
@@ -45,21 +51,22 @@ export default function ProductsPage() {
   }, []);
 
   useEffect(() => {
-    const filtered = products.filter((product) =>
-      product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      product.description?.toLowerCase().includes(searchTerm.toLowerCase())
+    const filtered = products.filter(
+      (product) =>
+        product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        product.description?.toLowerCase().includes(searchTerm.toLowerCase()),
     );
     setFilteredProducts(filtered);
   }, [searchTerm, products]);
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
-
       <section className="px-4 py-12 md:py-16 max-w-7xl mx-auto">
         <div className="flex flex-col gap-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <h1 className="text-4xl md:text-5xl font-bold text-balance">Products</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-balance">
+              Products
+            </h1>
             {user && (
               <Button asChild>
                 <Link href="/products/add">Add Product</Link>
@@ -83,7 +90,9 @@ export default function ProductsPage() {
           ) : filteredProducts.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-muted-foreground">
-                {products.length === 0 ? 'No products available yet.' : 'No products match your search.'}
+                {products.length === 0
+                  ? "No products available yet."
+                  : "No products match your search."}
               </p>
             </div>
           ) : (
@@ -93,7 +102,7 @@ export default function ProductsPage() {
                   <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
                     {product.image && (
                       <div className="w-full h-40 bg-muted overflow-hidden rounded-t-lg">
-                        <img
+                        <Image
                           src={product.image}
                           alt={product.title}
                           className="w-full h-full object-cover"
@@ -101,7 +110,9 @@ export default function ProductsPage() {
                       </div>
                     )}
                     <CardHeader>
-                      <CardTitle className="line-clamp-2">{product.title}</CardTitle>
+                      <CardTitle className="line-clamp-2">
+                        {product.title}
+                      </CardTitle>
                       {product.description && (
                         <CardDescription className="line-clamp-2">
                           {product.description}
@@ -120,13 +131,6 @@ export default function ProductsPage() {
           )}
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="px-4 py-8 border-t border-border bg-muted/50 mt-16">
-        <div className="max-w-7xl mx-auto text-center text-sm text-muted-foreground">
-          <p>&copy; 2024 Shop. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 }

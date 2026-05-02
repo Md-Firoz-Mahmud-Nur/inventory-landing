@@ -1,6 +1,5 @@
 "use client";
 
-import { Navbar } from "@/components/navbar";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -27,7 +26,6 @@ export default function DashboardPage() {
   if (!user) {
     return (
       <div className="min-h-screen bg-background">
-        <Navbar />
         <div className="max-w-7xl mx-auto px-4 py-12 text-center">
           <p className="text-muted-foreground">Loading...</p>
         </div>
@@ -37,8 +35,6 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
-
       <section className="px-4 py-12 md:py-16 max-w-7xl mx-auto">
         <div className="space-y-8">
           <div>
@@ -125,13 +121,6 @@ export default function DashboardPage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="px-4 py-8 border-t border-border bg-muted/50 mt-16">
-        <div className="max-w-7xl mx-auto text-center text-sm text-muted-foreground">
-          <p>&copy; 2024 Shop. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 }

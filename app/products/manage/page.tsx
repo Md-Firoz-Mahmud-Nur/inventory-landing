@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { Navbar } from "@/components/navbar";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -88,7 +87,6 @@ export default function ManageProductsPage() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-background">
-        <Navbar />
         <div className="max-w-7xl mx-auto px-4 py-12 text-center">
           <p className="text-muted-foreground">Loading products...</p>
         </div>
@@ -98,8 +96,6 @@ export default function ManageProductsPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
-
       <section className="px-4 py-12 md:py-16 max-w-7xl mx-auto">
         <div className="flex flex-col gap-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -187,13 +183,6 @@ export default function ManageProductsPage() {
           )}
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="px-4 py-8 border-t border-border bg-muted/50 mt-16">
-        <div className="max-w-7xl mx-auto text-center text-sm text-muted-foreground">
-          <p>&copy; 2024 Shop. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 }

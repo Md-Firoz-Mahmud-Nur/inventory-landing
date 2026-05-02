@@ -1,6 +1,5 @@
 "use client";
 
-import { Navbar } from "@/components/navbar";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import {
@@ -60,8 +59,6 @@ export default function AddProductPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
-
       <section className="px-4 py-12 md:py-16 max-w-2xl mx-auto">
         <Link
           href="/products"
@@ -191,13 +188,6 @@ export default function AddProductPage() {
           </CardContent>
         </Card>
       </section>
-
-      {/* Footer */}
-      <footer className="px-4 py-8 border-t border-border bg-muted/50 mt-16">
-        <div className="max-w-7xl mx-auto text-center text-sm text-muted-foreground">
-          <p>&copy; 2024 Shop. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 }
